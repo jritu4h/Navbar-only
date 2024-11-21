@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+
+<body class="bg-white">
+  <header class="bg-white h-full  sticky top-0 z-50">
+    <div class="container mx-auto flex items-center justify-around px-6 py-4">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <button type="button" onclick="openMenu()" id="main-menu" aria-label="Main menu"
+        aria-haspopup="true"
+        class="inline-flex items-center justify-center lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+        <svg stroke="currentColor" fill="none" viewBox="0 0 24 24" class="h-6 w-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 542.8 546.3" class="w-6 h-6">
+          <style type="text/css">
+            .st0 {
+              fill: #15498A;
+            }
+
+            .st1 {
+              fill: #FFFFFF;
+            }
+          </style>
+          <path class="st0" d="M0,39.1C0,17.5,18,0,40.1,0h462.6c22.2,0,40.1,17.5,40.1,39.1v468c0,21.6-18,39.1-40.1,39.1H40.1
+                    C18,546.3,0,528.8,0,507.2L0,39.1L0,39.1z" />
+          <g>
+            <path class="st1" d="M217.5,91.3L35.7,273.2L217.5,455l181.9-181.9L217.5,91.3z M118.5,273.2l99.3-99.3l99.3,99.3
+                      l-99.3,99.3L118.5,273.2z" />
+            <path class="st1" d="M445.7,273.2l-99.3,99.3l-99.3-99.3l99.3-99.3l-0.3-82.5L164.3,273.2L346.1,455L528,273.2H445.7
+                    z" />
+          </g>
+        </svg>
+
+        <span class="text-lg font-bold text-gray-700">IMDTEC</span>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex space-x-4">
+        <div class="relative">
+          <!-- Services Button with Arrow -->
+          <p id="services-btn"
+            class="text-gray-600 cursor-pointer hover:text-blue-500 transition-all duration-300 flex items-center gap-2">
+            Services
+            <!-- Arrow Icon -->
+            <svg id="arrow-icon" class="w-4 h-4 transition-transform duration-300" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </p>
+
+          <!-- Dropdown Menu -->
+          <div id="services-dropdown"
+            class="absolute left-1/2 transform -translate-x-1/3 top-12  shadow-md w-max opacity-0 pointer-events-none transition-all duration-300 bg-orange-50 px-10 py-5 ">
+            <!-- Close Button -->
+            <button id="close-btn-service"
+              class="text-gray-500 font-bold text-xl absolute top-3 right-4 focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 384 512">
+                <path
+                  d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+              </svg>
+            </button>
+
+            <div class="flex p-6 gap-6  ">
+              <!-- Dropdown Content -->
+              <ul class="text-gray-600 bg-orange-100 space-y-5 py-6 px-5">
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Audit <span><svg
+                        id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Audit & Assurance
+                    Solutions <span><svg id="arrow-icon"
+                        class="w-4 h-4 transition-transform duration-300 transform -rotate-90" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Conseil Financier
+                    <span><svg id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Conseil Opérationnel
+                    <span><svg id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Expertise Conseil
+                    <span><svg id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Conseil Juridique et
+                    Fiscal <span><svg id="arrow-icon"
+                        class="w-4 h-4 transition-transform duration-300 transform -rotate-90" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Transformation
+                    Durable <span><svg id="arrow-icon"
+                        class="w-4 h-4 transition-transform duration-300 transform -rotate-90" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">International
+                    Business Advisory <span><svg id="arrow-icon"
+                        class="w-4 h-4 transition-transform duration-300 transform -rotate-90" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+              </ul>
+              <div>
+                <h3 class="text-lg font-bold text-gray-700">Audit</h3>
+                <p class="text-sm text-gray-600">
+                  Grant Thornton, acteur majeur de l'Audit en France et dans le monde
+                  auprès de grands groupes.
+                </p>
+                <hr class="border border-black mt-3">
+                <a href="#" class=" mt-2 block">Voir cette page →</a>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 1</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 1<br>with relevant details.
+                    </p>
+                  </div>
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 2</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 2<br>with relevant details.
+                    </p>
+                  </div>
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 3</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 3<br>with relevant details.
+                    </p>
+                  </div>
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 4</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 4<br>with relevant details.
+                    </p>
+                  </div>
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 5</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 5<br>with relevant details.
+                    </p>
+                  </div>
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 6</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 6<br>with relevant details.
+                    </p>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+        <div class="relative">
+          <!-- Secteurs Button with Arrow -->
+          <p id="secteurs-btn"
+            class="text-gray-600 cursor-pointer hover:text-blue-500 transition-all duration-300 flex items-center gap-2">
+            Secteurs
+            <!-- Arrow Icon -->
+            <svg id="secteurs-arrow" class="w-4 h-4 transition-transform duration-300" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </p>
+
+          <!-- Dropdown Menu -->
+          <div id="secteurs-dropdown"
+            class="absolute left-1/2 transform -translate-x-1/3 top-12  shadow-md w-max opacity-0 pointer-events-none transition-all duration-300 py-10 px-5 bg-orange-50">
+            <!-- Close Button -->
+            <button id="close-btn-secteurs"
+              class="text-gray-500 font-bold text-xl absolute top-3 right-4 focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 384 512">
+                <path
+                  d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+              </svg>
+            </button>
+
+            <div class="flex p-6 gap-6 bg-orange-50">
+              <!-- Dropdown Content -->
+              <ul class="text-gray-600  bg-orange-100 space-y-5 py-6 px-5">
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Finance <span><svg
+                        id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Healthcare <span><svg
+                        id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Technology <span><svg
+                        id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Manufacturing
+                    <span><svg id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Real Estate
+                    <span><svg id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Public Sector
+                    <span><svg id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Retail <span><svg
+                        id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-red-500 hover:underline flex items-center gap-2">Energy <span><svg
+                        id="arrow-icon" class="w-4 h-4 transition-transform duration-300 transform -rotate-90"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </span></a>
+                </li>
+              </ul>
+              <div>
+                <h3 class="text-lg font-bold text-gray-700">Secteurs</h3>
+                <p class="text-sm text-gray-600">
+                  Découvrez nos solutions dédiées à différents secteurs d'activité.
+                </p>
+                <a href="#" class="text-blue-500 hover:underline mt-2 block">En savoir plus →</a>
+                <hr class="border border-black">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 1</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 1<br>with relevant details.
+                    </p>
+                  </div>
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 2</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 2<br>with relevant details.
+                    </p>
+                  </div>
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 3</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 3<br>with relevant details.
+                    </p>
+                  </div>
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 4</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 4<br>with relevant details.
+                    </p>
+                  </div>
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 5</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 5<br>with relevant details.
+                    </p>
+                  </div>
+                  <div class="p-5 bg-gray-100 border rounded">
+                    <h4 class="text-lg font-bold text-gray-800">Service 6</h4>
+                    <p class="text-gray-600 mt-2 block">
+                      Description of service 6<br>with relevant details.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="text-gray-600 hover:text-blue-500">Products</a>
+        <a href="#" class="text-gray-600 hover:text-blue-500">Insights</a>
+        <a href="#" class="text-gray-600 hover:text-blue-500">Support</a>
+        <a href="#" class="text-gray-600 hover:text-blue-500">Azuregram</a>
+      </nav>
+
+<!-- Slide-in Menu -->
+<div id="slide-menu" class="lg:hidden fixed inset-0 bg-white z-50 transform translate-x-full transition-all duration-300">
+<div class="flex justify-end p-4">
+    <button onclick="closeMenu()" class="text-gray-500 font-bold text-xl focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 384 512">
+            <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+        </svg>
+    </button>
+</div>
+<nav class="flex flex-col items-center space-y-4 py-6">
+  <a href="#" class="text-gray-600 hover:text-blue-500">Services</a>
+  <a href="#" class="text-gray-600 hover:text-blue-500"> Secteurs</a>
+  <a href="#" class="text-gray-600 hover:text-blue-500">Products</a>
+  <a href="#" class="text-gray-600 hover:text-blue-500">Insights</a>
+  <a href="#" class="text-gray-600 hover:text-blue-500">Support</a>
+  <a href="#" class="text-gray-600 hover:text-blue-500">Azuregram</a>
+</nav>
+</div>
+
+      <!-- Icons -->
+      <div class="flex  items-center space-x-4 ">
+        <button id="bookmark-btn"
+          class="relative group p-2 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none lg:inline-flex hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-6 h-6 text-gray-600">
+            <path
+              d="M400 0H112C85.49 0 64 21.49 64 48v416c0 12.5 13.65 19.74 24.46 12.75L256 362.24l167.5 114.51C433.4 483.7 448 476.5 448 464V48c0-26.51-21.5-48-48-48z" />
+          </svg>
+
+        </button>
+        <!-- Search Button -->
+        <button id="search-btn" class="icon-btn focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-6 h-6">
+            <path
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+          </svg>
+        </button>
+
+        <!-- Search Section -->
+        <div id="search-container"
+          class="search-container absolute top-16 right-0 w-full bg-white shadow-lg p-6 transform scale-y-0 origin-top transition-all duration-300 opacity-0 py-8">
+          <button id="close-btn"
+            class="close-btn text-gray-500 font-bold text-xl absolute top-0 right-4 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+              viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+            </svg>
+          </button>
+          <!-- Search Input with Label -->
+          <label for="search-input" class="block text-sm font-medium text-gray-700 mb-2">Search Insights</label>
+          <div class="relative mb-6">
+            <input type="text" id="search-input" placeholder="Search insights, services, and experts"
+              class="w-full border border-gray-300 rounded-lg py-2 px-4 pl-10 focus:ring-2 focus:ring-red-500 outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-2.5 left-3 w-5 h-5 text-gray-400"
+              fill="currentColor" viewBox="0 0 512 512">
+              <path
+                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+            </svg>
+          </div>
+
+          <!-- Popular Searches -->
+          <div class="popular-searches">
+            <p class="font-semibold text-sm text-gray-700 mb-2">Popular Searches</p>
+            <ul class="space-y-1">
+              <li class="text-gray-600 hover:text-red-500 cursor-pointer">Agile</li>
+              <li class="text-gray-600 hover:text-red-500 cursor-pointer">Digital</li>
+              <li class="text-gray-600 hover:text-red-500 cursor-pointer">Strategy</li>
+            </ul>
+          </div>
+
+          <!-- Recently Visited -->
+          <div class="mt-6">
+            <p class="font-semibold text-sm text-gray-700 mb-2">Recently Visited</p>
+            <ul class="space-y-2">
+              <li class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40" alt="Thumbnail" class="w-10 h-10 rounded">
+                <span class="text-gray-600 hover:text-red-500 cursor-pointer">Recent Page Title 1</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40" alt="Thumbnail" class="w-10 h-10 rounded">
+                <span class="text-gray-600 hover:text-red-500 cursor-pointer">Recent Page Title 2</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="relative">
+          <!-- Icon Button -->
+          <button id="grid-icon-btn" class="icon-btn p-2 rounded-full hover:bg-gray-100 focus:outline-none">
+            <img src="https://www.svgrepo.com/show/345405/grid.svg" alt="Grid" class="w-6 h-6">
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div id="grid-dropdown"
+            class="absolute lg:left-[0%] right-0 transform -translate-x-1/2 mt-2 bg-gray-300 shadow-lg rounded-lg p-4 opacity-0 pointer-events-none  scale-95 transition-all duration-300 lg:w-64 w-[210px] z-10 max-w-xs overflow-hidden">
+            <div class="grid grid-cols-3 gap-4 bg-white px-8 py-10">
+              <!-- Grid Items -->
+              <div class="flex flex-col items-center">
+                <img src="https://via.placeholder.com/50" alt="App 1" class="w-12 h-12">
+                <p class="text-sm text-gray-600 mt-2">App 1</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="https://via.placeholder.com/50" alt="App 2" class="w-12 h-12">
+                <p class="text-sm text-gray-600 mt-2">App 2</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="https://via.placeholder.com/50" alt="App 3" class="w-12 h-12">
+                <p class="text-sm text-gray-600 mt-2">App 3</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="https://via.placeholder.com/50" alt="App 4" class="w-12 h-12">
+                <p class="text-sm text-gray-600 mt-2">App 4</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="https://via.placeholder.com/50" alt="App 5" class="w-12 h-12">
+                <p class="text-sm text-gray-600 mt-2">App 5</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="https://via.placeholder.com/50" alt="App 6" class="w-12 h-12">
+                <p class="text-sm text-gray-600 mt-2">App 6</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="https://via.placeholder.com/50" alt="App 7" class="w-12 h-12">
+                <p class="text-sm text-gray-600 mt-2">App 7</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="https://via.placeholder.com/50" alt="App 8" class="w-12 h-12">
+                <p class="text-sm text-gray-600 mt-2">App 8</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="https://via.placeholder.com/50" alt="App 9" class="w-12 h-12">
+                <p class="text-sm text-gray-600 mt-2">App 9</p>
+              </div>
+            </div>
+            <a href="https://example.com" class="mt-4 block text-center text-blue-500 hover:underline">See More
+              Apps</a>
+          </div>
+        </div>
+
+
+        <button class="icon-btn focus:outline-none lg:inline-flex hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+            viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M406.5 399.6C387.4 352.9 341.5 320 288 320l-64 0c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3l64 0c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <script>
+    // Select elements
+    const searchBtn = document.querySelector('#search-btn');
+    const searchContainer = document.querySelector('#search-container');
+    const closeBtn = document.querySelector('#close-btn');
+    const bookmarkBtn = document.querySelector('#bookmark-btn');
+
+    // Open Search Container
+    searchBtn.addEventListener('click', () => {
+      searchContainer.classList.remove('scale-y-0', 'opacity-0');
+      searchContainer.classList.add('scale-y-100', 'opacity-100');
+    });
+
+    // Close Search Container
+    closeBtn.addEventListener('click', () => {
+      searchContainer.classList.remove('scale-y-100', 'opacity-100');
+      searchContainer.classList.add('scale-y-0', 'opacity-0');
+    });
+
+    // Close with Escape Key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        searchContainer.classList.remove('scale-y-100', 'opacity-100');
+        searchContainer.classList.add('scale-y-0', 'opacity-0');
+      }
+    });
+
+    // Bookmark Button Interaction
+    bookmarkBtn.addEventListener('click', () => {
+      alert('Bookmark saved!');
+    });
+
+
+    // services
+    // Get the elements
+    const servicesBtn = document.getElementById("services-btn");
+    const servicesDropdown = document.getElementById("services-dropdown");
+    const closeBtnService = document.getElementById("close-btn-service");
+    const arrowIcon = document.getElementById("arrow-icon");
+
+    // Function to toggle the dropdown
+    servicesBtn.addEventListener("click", () => {
+      const isVisible = servicesDropdown.classList.contains("opacity-100");
+
+      if (isVisible) {
+        // Close dropdown and rotate arrow back
+        servicesDropdown.classList.remove("opacity-100", "pointer-events-auto");
+        servicesDropdown.classList.add("opacity-0", "pointer-events-none");
+        arrowIcon.classList.remove("rotate-180");
+      } else {
+        // Open dropdown and rotate arrow
+        servicesDropdown.classList.remove("opacity-0", "pointer-events-none");
+        servicesDropdown.classList.add("opacity-100", "pointer-events-auto");
+        arrowIcon.classList.add("rotate-180");
+      }
+    });
+
+    // Function to close the dropdown when the close button is clicked
+    closeBtnService.addEventListener("click", () => {
+      servicesDropdown.classList.remove("opacity-100", "pointer-events-auto");
+      servicesDropdown.classList.add("opacity-0", "pointer-events-none");
+      arrowIcon.classList.remove("rotate-180");
+    });
+
+
+
+    // seture
+
+    const secteursBtn = document.getElementById("secteurs-btn");
+    const secteursDropdown = document.getElementById("secteurs-dropdown");
+    const closeBtnSecteurs = document.getElementById("close-btn-secteurs");
+    const secteursArrow = document.getElementById("secteurs-arrow");
+
+    // Function to toggle the dropdown
+    secteursBtn.addEventListener("click", () => {
+      const isVisible = secteursDropdown.classList.contains("opacity-100");
+
+      if (isVisible) {
+        // Close dropdown and rotate arrow back
+        secteursDropdown.classList.remove("opacity-100", "pointer-events-auto");
+        secteursDropdown.classList.add("opacity-0", "pointer-events-none");
+        secteursArrow.classList.remove("rotate-180");
+      } else {
+        // Open dropdown and rotate arrow
+        secteursDropdown.classList.remove("opacity-0", "pointer-events-none");
+        secteursDropdown.classList.add("opacity-100", "pointer-events-auto");
+        secteursArrow.classList.add("rotate-180");
+      }
+    });
+
+    // Close dropdown when the close button is clicked
+    closeBtnSecteurs.addEventListener("click", () => {
+      secteursDropdown.classList.remove("opacity-100", "pointer-events-auto");
+      secteursDropdown.classList.add("opacity-0", "pointer-events-none");
+      secteursArrow.classList.remove("rotate-180");
+    });
+
+
+    // grid menu
+
+    const gridIconBtn = document.getElementById("grid-icon-btn");
+    const gridDropdown = document.getElementById("grid-dropdown");
+
+    // Toggle Dropdown
+    function toggleDropdown() {
+      const isOpen = gridDropdown.classList.contains("opacity-100");
+
+      if (isOpen) {
+        gridDropdown.classList.remove("opacity-100", "pointer-events-auto", "scale-100");
+        gridDropdown.classList.add("opacity-0", "pointer-events-none", "scale-95");
+      } else {
+        gridDropdown.classList.remove("opacity-0", "pointer-events-none", "scale-95");
+        gridDropdown.classList.add("opacity-100", "pointer-events-auto", "scale-100");
+      }
+    }
+
+    // Close Dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!gridIconBtn.contains(e.target) && !gridDropdown.contains(e.target)) {
+        gridDropdown.classList.remove("opacity-100", "pointer-events-auto", "scale-100");
+        gridDropdown.classList.add("opacity-0", "pointer-events-none", "scale-95");
+      }
+    });
+
+    // Open Dropdown on Button Click
+    gridIconBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleDropdown();
+    });
+
+  // Open the mobile menu
+  function openMenu() {
+      document.getElementById("slide-menu").style.transform = "translateX(0)";
+  }
+
+  function closeMenu() {
+      document.getElementById("slide-menu").style.transform = "translateX(100%)";
+  }
+  </script>
+</body>
+</html>
